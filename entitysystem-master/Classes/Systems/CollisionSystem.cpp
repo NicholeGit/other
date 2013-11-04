@@ -1,4 +1,4 @@
-//
+﻿//
 //  CollisionSystem.cpp
 //  HelloCpp
 //
@@ -31,10 +31,10 @@ void CollisionSystem::update(float dt)
         return;
     }
     
-    int count=entities->size();
+    int count = entities->size();
     
     //记录两个Entity之间是否已执行碰撞检测
-    int haveCollision[count][count];
+    int haveCollision[10][10];
     
     for (int i=0; i<count; i++){
         //碰撞主体

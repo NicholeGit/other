@@ -19,15 +19,12 @@ bool HelloWorld::init()
 
     //init ECS
     initEntitySystem();
-    
     Size size=CCDirector::getInstance()->getVisibleSize();
     LayerColor* colorLayer=LayerColor::create(Color4B(255,255,255,255),size.width,size.height);
-    addChild(colorLayer,-1);
-    
+    addChild(colorLayer,-1);    
     //船
     addShip();
-    
-    addHelp(Point(_ship->getPositionX()+200,_ship->getPositionY()));
+	addHelp(Point(_ship->getPositionX()+200,_ship->getPositionY()));
     //addHelp(Point(_ship->getPositionX()-200,_ship->getPositionY()));
     //addHelp(Point(_ship->getPositionX(),_ship->getPositionY()-200));
 
@@ -43,14 +40,14 @@ bool HelloWorld::init()
     auto listener1=EventListenerCustom::create(GunEvent::GUN_EVENT_TYPE, CC_CALLBACK_1(HelloWorld::addbullet,this));
     EventDispatcher::getInstance()->addEventListenerWithFixedPriority(listener1, 1);
     
-    // 显式倒计时
-    Label* lblTime=Label::createWithTTF("", "fonts/Marker Felt.ttf", 40);
+	//显式
+	Label* lblTime = Label::createWithTTF("", "fonts/Marker Felt.ttf", 40);
     lblTime->setColor(Color3B::RED);
     addChild(lblTime);
     lblTime->setPosition(Point(size.width-100,size.height-100));
     
     //游戏结束
-    Entity* gameOver=_entityManager->createEntity();
+    Entity* gameOver = _entityManager->createEntity();
     _entityManager->addComponentToEntity(GameOverComponent::create(100,lblTime), gameOver);
     _entityManager->addComponentToEntity(RenderComponent::create(this), gameOver);
     

@@ -67,7 +67,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\cocos2dx;$(ProjectDir)..\..\..\cocos2dx\include;$(ProjectDir)..\..\..\cocos2dx\kazmath\include;$(ProjectDir)..\..\..\cocos2dx\platform\win32;$(ProjectDir)..\..\..\cocos2dx\platform\third_party\win32;$(ProjectDir)..\..\..\cocos2dx\platform\third_party\win32\OGLES;$(ProjectDir)..\..\..\external;$(ProjectDir)..\..\..\external\chipmunk\include\chipmunk;$(ProjectDir)..\..\..\CocosDenshion\include;$(ProjectDir)..\..\..\extensions;..\Classes;..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\cocos2dx;$(ProjectDir)..\..\..\cocos2dx\include;$(ProjectDir)..\..\..\cocos2dx\kazmath\include;$(ProjectDir)..\..\..\cocos2dx\platform\win32;$(ProjectDir)..\..\..\cocos2dx\platform\third_party\win32;$(ProjectDir)..\..\..\cocos2dx\platform\third_party\win32\OGLES;$(ProjectDir)..\..\..\external;$(ProjectDir)..\..\..\external\chipmunk\include\chipmunk;$(ProjectDir)..\..\..\CocosDenshion\include;$(ProjectDir)..\..\..\extensions;..\Classes;..;..\Classes\EntitySystem;..\Classes\Systems;..\Classes\Components;..\Classes\Events;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;CC_ENABLE_CHIPMUNK_INTEGRATION=1;COCOS2D_DEBUG=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -132,12 +132,62 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\Components\BulletComponent.cpp" />
+    <ClCompile Include="..\Classes\Components\CollisionComponent.cpp" />
+    <ClCompile Include="..\Classes\Components\GameOverComponent.cpp" />
+    <ClCompile Include="..\Classes\Components\GhostComponent.cpp" />
+    <ClCompile Include="..\Classes\Components\GunComponent.cpp" />
+    <ClCompile Include="..\Classes\Components\HealthComponent.cpp" />
+    <ClCompile Include="..\Classes\Components\HitComponent.cpp" />
+    <ClCompile Include="..\Classes\Components\RenderComponent.cpp" />
+    <ClCompile Include="..\Classes\Components\ShipComponent.cpp" />
+    <ClCompile Include="..\Classes\EntitySystem\Component.cpp" />
+    <ClCompile Include="..\Classes\EntitySystem\Entity.cpp" />
+    <ClCompile Include="..\Classes\EntitySystem\EntityManager.cpp" />
+    <ClCompile Include="..\Classes\EntitySystem\MoveComponent.cpp" />
+    <ClCompile Include="..\Classes\EntitySystem\MoveSystem.cpp" />
+    <ClCompile Include="..\Classes\EntitySystem\System.cpp" />
+    <ClCompile Include="..\Classes\Events\CollisionEvent.cpp" />
+    <ClCompile Include="..\Classes\Events\DeadEvent.cpp" />
+    <ClCompile Include="..\Classes\Events\GunEvent.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
+    <ClCompile Include="..\Classes\Systems\CollisionSystem.cpp" />
+    <ClCompile Include="..\Classes\Systems\GameOverSystem.cpp" />
+    <ClCompile Include="..\Classes\Systems\GunSystem.cpp" />
+    <ClCompile Include="..\Classes\Systems\HealthSystem.cpp" />
+    <ClCompile Include="..\Classes\Systems\HitSystem.cpp" />
+    <ClCompile Include="..\Classes\Systems\RenderSystem.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\AppMacros.h" />
+    <ClInclude Include="..\Classes\Components\BulletComponent.h" />
+    <ClInclude Include="..\Classes\Components\CollisionComponent.h" />
+    <ClInclude Include="..\Classes\Components\GameOverComponent.h" />
+    <ClInclude Include="..\Classes\Components\GhostComponent.h" />
+    <ClInclude Include="..\Classes\Components\GunComponent.h" />
+    <ClInclude Include="..\Classes\Components\HealthComponent.h" />
+    <ClInclude Include="..\Classes\Components\HitComponent.h" />
+    <ClInclude Include="..\Classes\Components\RenderComponent.h" />
+    <ClInclude Include="..\Classes\Components\ShipComponent.h" />
+    <ClInclude Include="..\Classes\EntitySystem\Component.h" />
+    <ClInclude Include="..\Classes\EntitySystem\Entity.h" />
+    <ClInclude Include="..\Classes\EntitySystem\EntityFactory.h" />
+    <ClInclude Include="..\Classes\EntitySystem\EntityManager.h" />
+    <ClInclude Include="..\Classes\EntitySystem\MoveComponent.h" />
+    <ClInclude Include="..\Classes\EntitySystem\MoveSystem.h" />
+    <ClInclude Include="..\Classes\EntitySystem\System.h" />
+    <ClInclude Include="..\Classes\Events\CollisionEvent.h" />
+    <ClInclude Include="..\Classes\Events\DeadEvent.h" />
+    <ClInclude Include="..\Classes\Events\GunEvent.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="..\Classes\Systems\CollisionSystem.h" />
+    <ClInclude Include="..\Classes\Systems\GameOverSystem.h" />
+    <ClInclude Include="..\Classes\Systems\GunSystem.h" />
+    <ClInclude Include="..\Classes\Systems\HealthSystem.h" />
+    <ClInclude Include="..\Classes\Systems\HitSystem.h" />
+    <ClInclude Include="..\Classes\Systems\RenderSystem.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>
