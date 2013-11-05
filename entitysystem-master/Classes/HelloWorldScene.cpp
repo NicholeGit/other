@@ -22,8 +22,8 @@ bool HelloWorld::init()
     Size size=CCDirector::getInstance()->getVisibleSize();
     LayerColor* colorLayer=LayerColor::create(Color4B(255,255,255,255),size.width,size.height);
     addChild(colorLayer,-1);    
-    //船
-    addShip();
+    //船    
+	addShip();
 	addHelp(Point(_ship->getPositionX()+200,_ship->getPositionY()));
     //addHelp(Point(_ship->getPositionX()-200,_ship->getPositionY()));
     //addHelp(Point(_ship->getPositionX(),_ship->getPositionY()-200));
