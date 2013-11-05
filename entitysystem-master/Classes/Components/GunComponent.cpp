@@ -26,6 +26,7 @@ GunComponent::GunComponent(const char* tt,float dis,float d)
 ,targetType(tt)
 ,distance(dis)
 ,durence(d)
+,currentTime(0)
 {
     
 }
