@@ -31,10 +31,17 @@ void CollisionSystem::update(float dt)
         return;
     }
     
-    int count = entities->size();
+	static int szie = 0;
+	static int *haveCollision = NULL;
+	int count = entities->size();
     
     //记录两个Entity之间是否已执行碰撞检测
-    int haveCollision[10][10];
+	if(szie < count)
+	{
+		delete haveCollision;
+		szie = count;
+		haveCollision = new int[szie*szie];
+	}
     
     for (int i=0; i<count; i++){
         //碰撞主体
@@ -45,7 +52,7 @@ void CollisionSystem::update(float dt)
         
         //可能与之发生碰撞的主体
         for (int j=0; j<count; j++) {
-            if (haveCollision[j][i]==1||i==j) {
+            if (haveCollision[j*count+i]==1||i==j) {
                 continue;
             }
             Entity* collisionEntity=entities->at(j);
@@ -56,7 +63,7 @@ void CollisionSystem::update(float dt)
             //发生碰撞
             if (collide(render->getNode(), collisionRender->getNode())) {
                 //标记已处理两个特定Entity
-                haveCollision[i][j]=1;
+                haveCollision[j*count+i]=1;
             
                 CollisionEvent* event=new CollisionEvent(entity,collisionEntity);
                 EventDispatcher::getInstance()->dispatchEvent(event);
